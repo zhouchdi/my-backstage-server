@@ -1,0 +1,12 @@
+{
+  "name": "my-backstage-server",
+  "version": "1.0.0",
+  "description": "my backstage server for analysis my Front-end page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/zhouchdi/my-backstage-server",
+  "author": "15728042326@163.com",
+  "license": "ISC"
+}
