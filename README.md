@@ -12,4 +12,4 @@ npm install -g my-backstage-server
 
 **How it works**
 
-You can enter the folder and **backstage**
+You can enter the folder and only use **backstage**
