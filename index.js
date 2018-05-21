@@ -4,8 +4,6 @@ const express = require("express");
 const fs = require("fs");
 // opn模块, 自动打开浏览器
 const opn = require("opn");
-// http
-const http = require("http");
 // 监视文件变化
 const chokidar = require("chokidar");
 
