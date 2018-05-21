@@ -20,12 +20,6 @@ let host = "127.0.0.1";
 
 // 启动服务
 function start() {
-  // 创建一个服务器
-  let server = http.createServer(function(req, res) {
-    res.setHeader("Content-Type", "text/plain");
-    res.end();
-  });
-
   // 静态文件夹
   app.use(express.static(thisPath));
 
@@ -59,7 +53,7 @@ function start() {
   readFiles(thisPath);
 
   // 服务器监听
-  server.listen(port, host, function() {
+  app.listen(port, host, function() {
     let consoleUrl = "http://" + host + ":" + port;
     console.log(`Serving ${thisPath} at ${consoleUrl}`);
     // 打开consoleUrl
