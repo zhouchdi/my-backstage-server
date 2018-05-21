@@ -26,8 +26,36 @@ function start() {
     res.end();
   });
 
-  // 静态文件
+  // 静态文件夹
   app.use(express.static(thisPath));
+
+  function readFiles(path) {
+    // 读取文件
+    fs.readdir(path, function(err, files) {
+      if (err) {
+        return console.error(err);
+      }
+
+      // 读取所有子文件
+      files.forEach(function(file) {
+        // 获取当前的文件状态
+        let states = fs.statSync(thisPath + "/" + file);
+        // 判断是否是文件夹，是则继续读取文件，不是则直接输出其中的内容
+        if (states.isDirectory()) {
+          // 自调
+          readFiles(path + "/" + file);
+        } else {
+          app.get("/" + file, function(req, res) {
+            res.end();
+          });
+        }
+      });
+    });
+  }
+
+  // 读取文件
+  readFiles(thisPath);
+
   // 服务器监听
   server.listen(port, host, function() {
     let consoleUrl = "http://" + host + ":" + port;
@@ -37,23 +65,23 @@ function start() {
   });
 
   // 监听
-  const watcher = chokidar.watch('.',{
+  const watcher = chokidar.watch(".", {
     ignored: /(^|[\/\\])\../,
     persistent: true
   });
 
   watcher
-  .on('add', path => console.log(`File ${path} has been added`))
-  .on('change', path => console.log(`File ${path} has been changed`))
-  .on('unlink', path => console.log(`File ${path} has been removed`))
-  .on('addDir', path => console.log(`Directory ${path} has been added`))
-  .on('unlinkDir', path => console.log(`Directory ${path} has been removed`))
-  .on('error', error => console.log(`Watcher error: ${error}`))
-//   .on('ready', () => console.log('Initial scan complete. Ready for changes'))
-//   .on('all', (event, path) => console.log(event,path))
-//   .on('raw', (event, path, details) => {
-//     console.log('Raw event info:', event, path, details);
-//   });
+    .on("add", path => console.log(`File ${path} has been added`))
+    .on("change", path => console.log(`File ${path} has been changed`))
+    .on("unlink", path => console.log(`File ${path} has been removed`))
+    .on("addDir", path => console.log(`Directory ${path} has been added`))
+    .on("unlinkDir", path => console.log(`Directory ${path} has been removed`))
+    .on("error", error => console.log(`Watcher error: ${error}`));
+  //   .on('ready', () => console.log('Initial scan complete. Ready for changes'))
+  //   .on('all', (event, path) => console.log(event,path))
+  //   .on('raw', (event, path, details) => {
+  //     console.log('Raw event info:', event, path, details);
+  //   });
 }
 
 module.exports = {
