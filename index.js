@@ -28,13 +28,10 @@ function start() {
 
   // 静态文件
   app.use(express.static(thisPath));
-  console.log(thisPath)
   // 服务器监听
   server.listen(port, host, function() {
     let consoleUrl = "http://" + host + ":" + port;
-    console.log(`Serving ${__dirname} at ${consoleUrl}`);
-    console.log(" 返回当前进程的工作目录."+process.argv);
-    console.log("这是启动进程的可执行程序的绝对路径."+process.execPath);
+    console.log(`Serving ${thisPath} at ${consoleUrl}`);
     // 打开consoleUrl
     opn(consoleUrl);
   });
