@@ -1,7 +1,7 @@
 {
   "name": "my-backstage-server",
   "preferGlobal": true,
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "my backstage server for analysis my Front-end page",
   "main": "index.js",
   "scripts": {

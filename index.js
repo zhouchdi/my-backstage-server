@@ -32,6 +32,7 @@ function start() {
   server.listen(port, host, function() {
     let consoleUrl = "http://" + host + ":" + port;
     console.log(`Serving ${__dirname} at ${consoleUrl}`);
+    console.log(process.argv)
     // 打开consoleUrl
     opn(consoleUrl);
   });
