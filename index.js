@@ -40,7 +40,6 @@ function start() {
           readFiles(path + "/" + file);
         } else {
           let url = subUrl(path + "/" + file);
-          console.log(url);
           app.get(url, function(req, res) {
             res.end();
           });
