@@ -4,7 +4,3 @@ node_js:
   - node
   - '9'
   - '8'
-matrix:
-  fast_finish: true
-  allow_failures:
-    - node_js: '0.8'
