@@ -45,6 +45,7 @@ function start() {
           // 自调
           readFiles(path + "/" + file);
         } else {
+            console.log("/" + file);
           app.get("/" + file, function(req, res) {
             res.end();
           });
