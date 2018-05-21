@@ -1,11 +1,8 @@
-  "os": "linux",
-  "dist": "trusty",
-  "sudo": false,
-  "group": "stable",
-  "addons": {
-    "apt": {
-      "update": true
-    }
-  },
-  "node_js": "8.11.0",
-  "language": "node_js"
+# 指定语言环境
+language: node_js
+# 指定需要sudo权限
+sudo: false
+# 指定node_js版本
+node_js: 
+  - 7.9.0
+  - 8.11.0
