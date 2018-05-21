@@ -39,7 +39,7 @@ function start() {
       // 读取所有子文件
       files.forEach(function(file) {
         // 获取当前的文件状态
-        let states = fs.statSync(thisPath + "/" + file);
+        let states = fs.statSync(path + "/" + file);
         // 判断是否是文件夹，是则继续读取文件，不是则直接输出其中的内容
         if (states.isDirectory()) {
           // 自调
