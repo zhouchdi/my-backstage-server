@@ -45,8 +45,9 @@ function start() {
           // 自调
           readFiles(path + "/" + file);
         } else {
-            console.log("/" + file);
-          app.get("/" + file, function(req, res) {
+          let url = subUrl(path + "/" + file);
+          console.log(url);
+          app.get(url, function(req, res) {
             res.end();
           });
         }
@@ -83,6 +84,15 @@ function start() {
   //   .on('raw', (event, path, details) => {
   //     console.log('Raw event info:', event, path, details);
   //   });
+}
+
+// 截取地址组成url地址
+function subUrl(path) {
+  let oriPath = path;
+  let reg = thisPath;
+  let url = thisPath.replace(reg, "");
+
+  return url;
 }
 
 module.exports = {
