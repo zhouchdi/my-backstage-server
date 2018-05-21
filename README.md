@@ -1,10 +1,8 @@
-My Backstage Server
-===================
+# My Backstage Server
 
 Use it for hacking your HTML/JavaScript/CSS files, but not for deploying the final site.
 
-Installation
-============
+# Installation
 
 **Npm way**
 
