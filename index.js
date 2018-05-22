@@ -4,6 +4,8 @@ const express = require("express");
 const fs = require("fs");
 // opn模块, 自动打开浏览器
 const opn = require("opn");
+// 监视文件变化
+const chokidar = require("chokidar");
 
 const app = express();
 
@@ -54,6 +56,25 @@ function start() {
     // 打开consoleUrl
     opn(consoleUrl);
   });
+
+  // 监听
+  const watcher = chokidar.watch(".", {
+    ignored: /(^|[\/\\])\../,
+    persistent: true
+  });
+
+  watcher
+    .on("add", path => console.log(`File ${path} has been added`))
+    .on("change", path => console.log(`File ${path} has been changed`))
+    .on("unlink", path => console.log(`File ${path} has been removed`))
+    .on("addDir", path => console.log(`Directory ${path} has been added`))
+    .on("unlinkDir", path => console.log(`Directory ${path} has been removed`))
+    .on("error", error => console.log(`Watcher error: ${error}`));
+  //   .on('ready', () => console.log('Initial scan complete. Ready for changes'))
+  //   .on('all', (event, path) => console.log(event,path))
+  //   .on('raw', (event, path, details) => {
+  //     console.log('Raw event info:', event, path, details);
+  //   });
 }
 
 // 截取地址组成url地址

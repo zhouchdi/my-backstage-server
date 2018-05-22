@@ -20,5 +20,8 @@
   "dependencies": {
     "express": "^4.16.3",
     "opn": "^5.3.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0"
   }
 }
