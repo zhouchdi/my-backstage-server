@@ -37,7 +37,7 @@ function start() {
           // 自调
           readFiles(path + "/" + file);
         } else {
-          let url = subUrl(path + "/" + file);
+          let url = subUrl(path + "/" + file, thisPath);
           app.get(url, function(req, res) {
             res.end();
           });
@@ -78,7 +78,7 @@ function start() {
 }
 
 // 截取地址组成url地址
-function subUrl(path) {
+function subUrl(path, thisPath) {
   let oriPath = path;
   let reg = thisPath;
   let url = thisPath.replace(reg, "");
@@ -87,5 +87,6 @@ function subUrl(path) {
 }
 
 module.exports = {
-  start: start
+  start: start,
+  subUrl: subUrl
 };
