@@ -81,7 +81,7 @@ function start() {
 function subUrl(path, thisPath) {
   let oriPath = path;
   let reg = thisPath;
-  let url = thisPath.replace(reg, "");
+  let url = path.replace(reg, "");
 
   return url;
 }
