@@ -1,7 +1,6 @@
 const { subUrl } = require("../index");
-console.log(subUrl());
 
-describe("测试 suburl()", function() {
+describe("测试 subUrl()", function() {
   it("/123/qwe", function() {
     subUrl("c:/user/123/qwe", "c:/user");
   });
