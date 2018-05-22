@@ -1,3 +1,4 @@
+[![npm module downloads per month](http://img.shields.io/npm/dm/my-backstage-server.svg)](https://www.npmjs.org/package/my-backstage-server)
 [![Build Status](https://travis-ci.org/zhouchdi/my-backstage-server.svg?branch=master)](https://travis-ci.org/zhouchdi/my-backstage-server)
 
 # My Backstage Server
